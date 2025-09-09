@@ -1,40 +1,689 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Trust - De la forteresse à la défense en profondeur</title>
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/moon.css">
+    <link rel="stylesheet" href="style.css">
 
-		<title>reveal.js</title>
+<!--        <link rel="stylesheet" href="dist/theme/solarized.css"> -->
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+</head>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Slide 1: Titre -->
+            <section>
+                <div class="title-slide-content">
+                    <h1 class="main-title">Zero Trust</h1>
+                    <h2 class="subtitle">De la forteresse à la défense en profondeur</h2>
+                    <p class="tagline">Analogie militaire et industrielle adaptée à la sécurité des systèmes distribués.</p>
+                    
+                    <p class="presenter-info">
+                        Yves-Gaël Chény
+                        CTO - Ageval Solutions
+                        Human Talks - 9 septembre 2025
+                    </p>
+                </div>
+            </section>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+            <!-- Slide 2: Sommaire -->
+            <section>
+                <h2>Sommaire</h2>
+                <ol class="agenda-container">
+                    <li class="agenda-item fragment">
+                        L'obsolescence du château-fort numérique
+                    </li>
+                    <li class="agenda-item fragment">
+                        Le paradigme Zero Trust
+                    </li>
+                    <li class="agenda-item fragment">
+                        Analogie miltaire moderne
+                    </li>
+                    <li class="agenda-item fragment">
+                        Les 5 piliers du Zero Trust
+                    <li class="agenda-item fragment">
+                        Implémentation pratique
+                    </li>
+                    <li class="agenda-item fragment">
+                       Défis et considérations stratégiques
+                    </li>
+                    <li class="agenda-item fragment">
+                        Perspectives d'avenir
+                    </li>
+                </ul>
+            </section>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+            <!-- Slide 3: Contexte historique -->
+            <section>
+                <h2>Le modèle "Castle-and-Moat" traditionnel</h2>
+                <div class="castle-container">
+                    <div class="castle-visual fragment">🏰</div>
+                    <div class="castle-features">
+                        <div class="feature-item fragment">
+                            <span class="feature-icon">🛡️</span>
+                            <span>Périmètre défensif rigide (pare-feu, VPN)</span>
+                        </div>
+                        <div class="feature-item fragment">
+                            <span class="feature-icon">✅</span>
+                            <span>Confiance implicite à l'intérieur du réseau</span>
+                        </div>
+                        <div class="feature-item fragment">
+                            <span class="feature-icon">📍</span>
+                            <span>Protection basée sur la localisation</span>
+                        </div>
+                        <div class="feature-item fragment">
+                            <span class="feature-icon">🔓</span>
+                            <span>Accès libre une fois authentifié</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: Limites du périmètre -->
+            <section>
+                <h2>Dissolution des frontières traditionnelles</h2>
+                <div class="boundaries-grid">
+                    <div class="boundary-card fragment">
+                        <div class="boundary-icon">☁️</div>
+                        <h3>Cloud</h3>
+                        <p>Services distribués<br>Multi-cloud hybride</p>
+                    </div>
+                    <div class="boundary-card fragment">
+                        <div class="boundary-icon">📱</div>
+                        <h3>IoT/Edge</h3>
+                        <p>Milliards d'objets connectés<br>Surface d'attaque élargie</p>
+                    </div>
+                    <div class="boundary-card fragment">
+                        <div class="boundary-icon">🏠</div>
+                        <h3>Télétravail</h3>
+                        <p>Accès nomade<br>Réseaux non maîtrisés</p>
+                    </div>
+                    <div class="boundary-card fragment">
+                        <div class="boundary-icon">📲</div>
+                        <h3>BYOD</h3>
+                        <p>Dispositifs personnels<br>Contrôle limité</p>
+                    </div>
+                </div>
+                
+
+            </section>
+
+            <!-- Slide 5: Statistiques alarmantes -->
+            <section>
+                <h2>Le coût des violations de sécurité</h2>
+                <div class="stats-container">
+                    <div class="stat-card critical fragment">
+                        <div class="stat-number">3,59M€</div>
+                        <div class="stat-label">Coût moyen France<br>(par incident)</div>
+                    </div>
+                    <div class="stat-card critical fragment">
+                        <div class="stat-number">4,88M$</div>
+                        <div class="stat-label">Coût moyen mondial<br>(par incident)</div>
+                    </div>
+                    <div class="stat-card warning fragment">
+                        <div class="stat-number">213</div>
+                        <div class="stat-label">Jours moyens<br>pour détecter</div>
+                    </div>
+                    <div class="stat-card warning fragment">
+                        <div class="stat-number">71</div>
+                        <div class="stat-label">Jours moyens pour<br>contenir l'incident</div>
+                    </div>
+                </div>
+                
+
+            </section>
+
+            <!-- Slide 6: Paradigme Zero Trust -->
+            <section>
+                <h2>Le paradigme Zero Trust</h2>
+                <div class="principle-container">
+                    <div class="central-principle fragment">
+                        <h3>"Never Trust, Always Verify"</h3>
+                        <p class="principle-subtitle">Ne jamais faire confiance, toujours vérifier</p>
+                    </div>
+                    
+                    <div class="principles-grid">
+                        <div class="principle-card fragment">
+                            <span class="principle-icon">🚨</span>
+                            <span>Supposer un environnement hostile</span>
+                        </div>
+                        <div class="principle-card fragment">
+                            <span class="principle-icon">🔍</span>
+                            <span>Supposer une violation</span>
+                        </div>
+                        <div class="principle-card fragment">
+                            <span class="principle-icon">🔐</span>
+                            <span>Vérification continue</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- Slide 7: Analogie militaire -->
+            <section>
+                <h2>Analogie militaire moderne</h2>
+                <div class="military-comparison">
+                    <div class="military-side">
+                        <div class="comparison-header">
+                            <div class="comparison-icon">⚔️</div>
+                            <h3>Doctrine militaire</h3>
+                        </div>
+                        <ul class="comparison-list">
+                            <li class="fragment">Contrôle d'accès strict</li>
+                            <li class="fragment">Compartimentage de l'information</li>
+                            <li class="fragment">Authentification à niveaux multiples</li>
+                            <li class="fragment">Surveillance continue</li>
+                            <li class="fragment">Réponse rapide aux incidents</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cyber-side">
+                        <div class="comparison-header">
+                            <div class="comparison-icon">🖥️</div>
+                            <h3>Zero Trust Cyber</h3>
+                        </div>
+                        <ul class="comparison-list">
+                            <li class="fragment">Vérification d'identité continue</li>
+                            <li class="fragment">Microsegmentation réseau</li>
+                            <li class="fragment">Authentification multifacteurs</li>
+                            <li class="fragment">Monitoring comportemental</li>
+                            <li class="fragment">Réponse automatisée</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- Slide 8: Les 5 piliers -->
+            <section>
+                <h2>Les 5 piliers du Zero Trust</h2>
+                <div class="pillars-container">
+                    <div class="pillar-card fragment">
+                        <div class="pillar-icon">👤</div>
+                        <h3>Identité</h3>
+                        <p>Authentification continue et MFA</p>
+                    </div>
+                    <div class="pillar-card fragment">
+                        <div class="pillar-icon">📱</div>
+                        <h3>Dispositifs</h3>
+                        <p>Validation posture sécuritaire</p>
+                    </div>
+                    <div class="pillar-card fragment">
+                        <div class="pillar-icon">🔧</div>
+                        <h3>Applications</h3>
+                        <p>Contrôle granulaire des accès</p>
+                    </div>
+                    <div class="pillar-card fragment">
+                        <div class="pillar-icon">📊</div>
+                        <h3>Données</h3>
+                        <p>Protection et classification dynamique</p>
+                    </div>
+                    <div class="pillar-card fragment">
+                        <div class="pillar-icon">🌐</div>
+                        <h3>Réseau</h3>
+                        <p>Micro-segmentation et chiffrement</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 9: Identité et accès -->
+            <section>
+                <h2>Identité : Authentification continue</h2>
+                <div class="identity-flow">
+                    <div class="flow-step fragment">
+                        <div class="step-icon">🔑</div>
+                        <h4>Authentification initiale</h4>
+                        <p>MFA obligatoire</p>
+                    </div>
+                    <div class="flow-arrow fragment">→</div>
+                    <div class="flow-step fragment">
+                        <div class="step-icon">📍</div>
+                        <h4>Évaluation contextuelle</h4>
+                        <p>Localisation, device, comportement</p>
+                    </div>
+                    <div class="flow-arrow fragment">→</div>
+                    <div class="flow-step fragment">
+                        <div class="step-icon">🔄</div>
+                        <h4>Re-authentification</h4>
+                        <p>Basée sur le niveau de risque</p>
+                    </div>
+                    <div class="flow-arrow fragment">→</div>
+                    <div class="flow-step fragment">
+                        <div class="step-icon">✅</div>
+                        <h4>Accès conditionnel</h4>
+                        <p>Droits minimaux requis</p>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- Slide 10: Microsegmentation -->
+            <section>
+                <h2>Microsegmentation : Isolation granulaire</h2>
+                <div class="segmentation-visual">
+                    <div class="network-zones">
+                        <div class="zone-card critical fragment">
+                            <h4>Zone Critique</h4>
+                            <div class="micro-segments">
+                                <div class="segment">DB Prod</div>
+                                <div class="segment">API Core</div>
+                            </div>
+                        </div>
+                        <div class="zone-card standard fragment">
+                            <h4>Zone Standard</h4>
+                            <div class="micro-segments">
+                                <div class="segment">Web Apps</div>
+                                <div class="segment">Services</div>
+                            </div>
+                        </div>
+                        <div class="zone-card public fragment">
+                            <h4>Zone Publique</h4>
+                            <div class="micro-segments">
+                                <div class="segment">CDN</div>
+                                <div class="segment">Load Balancer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="segmentation-benefits fragment">
+                    <p class="benefits-item">✅ Limitation des mouvements latéraux</p>
+                    <p class="benefits-item">✅ Isolation des ressources critiques</p>
+                    <p class="benefits-item">✅ Contrôle granulaire des flux</p>
+                </div>
+                
+                <aside class="notes">
+                    La microsegmentation crée des périmètres de sécurité granulaires autour de chaque ressource critique.
+                </aside>
+            </section>
+
+            <!-- Slide 11: Défense en profondeur 2.0 -->
+            <section>
+                <h2>Défense en profondeur 2.0</h2>
+                <div class="defense-concept">
+                    <div class="concept-header fragment">
+                        <h3>Complémentarité, non substitution</h3>
+                        <p>Zero Trust s'intègre dans une stratégie de défense multicouche</p>
+                    </div>
+                    
+                    <div class="defense-layers">
+                        <div class="layer perimeter fragment" data-fragment-index="1">Défense périmétrique</div>
+                        <div class="layer zero-trust fragment" data-fragment-index="2">Zero Trust</div>
+                        <div class="layer monitoring fragment" data-fragment-index="3">Surveillance continue</div>
+                        <div class="layer response fragment" data-fragment-index="4">Réponse incident</div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- Slide 12: Architecture réticulaire -->
+            <section>
+                <h2>Architecture réticulaire</h2>
+                <div class="adaptive-architecture">
+                    <div class="controls-section">
+                        <h4>Contrôles adaptatifs</h4>
+                        <div class="control-grid">
+                            <div class="control-item fragment">📍 Géolocalisation</div>
+                            <div class="control-item fragment">⏰ Analyse comportementale</div>
+                            <div class="control-item fragment">📱 Posture du dispositif</div>
+                            <div class="control-item fragment">🔍 Score de risque dynamique</div>
+                        </div>
+                    </div>
+                    
+                    <div class="risk-evaluation">
+                        <h4>Évaluation contextuelle</h4>
+                        <div class="risk-levels">
+                            <div class="risk-level low fragment">Risque faible</div>
+                            <div class="risk-level medium fragment">Risque moyen</div>
+                            <div class="risk-level high fragment">Risque élevé</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- Slide 13: Moindre privilège -->
+            <section>
+                <h2>Principe du moindre privilège</h2>
+                <div class="privilege-model">
+                    <div class="access-levels">
+                        <h4>Accès minimal nécessaire</h4>
+                        <div class="privilege-bars">
+                            <div class="privilege-bar admin fragment">Administrateur</div>
+                            <div class="privilege-bar power fragment">Utilisateur avancé</div>
+                            <div class="privilege-bar standard fragment">Utilisateur standard</div>
+                            <div class="privilege-bar guest fragment">Invité</div>
+                        </div>
+                    </div>
+                    
+                    <div class="jit-section">
+                        <h4>Just-In-Time Access</h4>
+                        <ul class="jit-features">
+                            <li class="fragment">Élévation temporaire de privilèges</li>
+                            <li class="fragment">Révocation automatique</li>
+                            <li class="fragment">Audit complet des accès</li>
+                            <li class="fragment">Workflow d'approbation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- Slide 18: Technologies clés -->
+            <section>
+                <h2>Technologies clés d'implémentation</h2>
+                <div class="tech-stack">
+                    <div class="tech-card fragment">
+                        <div class="tech-icon">🔐</div>
+                        <h4>IAM</h4>
+                        <p><strong>Identity and Access Management</strong><br>
+                        Gestion centralisée des identités et des accès</p>
+                    </div>
+                    
+                    <div class="tech-card fragment">
+                        <div class="tech-icon">📊</div>
+                        <h4>SIEM</h4>
+                        <p><strong>Security Information and Event Management</strong><br>
+                        Corrélation et analyse des événements sécuritaires</p>
+                    </div>
+                    
+                    <div class="tech-card fragment">
+                        <div class="tech-icon">🛡️</div>
+                        <h4>SDP</h4>
+                        <p><strong>Software-Defined Perimeter</strong><br>
+                        Périmètres dynamiques et adaptatifs</p>
+                    </div>
+                    
+                    <div class="tech-card fragment">
+                        <div class="tech-icon">🌐</div>
+                        <h4>ZTNA</h4>
+                        <p><strong>Zero Trust Network Access</strong><br>
+                        Accès réseau basé sur les principes Zero Trust</p>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- Slide 19: ZTNA -->
+            <section>
+                <h2>ZTNA : Zero Trust Network Access</h2>
+                <div class="ztna-comparison">
+                    <div class="vpn-traditional">
+                        <h4 class="comparison-title">VPN Traditionnel</h4>
+                        <div class="comparison-issues">
+                            <div class="issue-item fragment">❌ Accès réseau complet</div>
+                            <div class="issue-item fragment">❌ Confiance implicite</div>
+                            <div class="issue-item fragment">❌ Complexité de gestion</div>
+                            <div class="issue-item fragment">❌ Performance dégradée</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ztna-modern">
+                        <h4 class="comparison-title">ZTNA Moderne</h4>
+                        <div class="comparison-benefits">
+                            <div class="benefit-item fragment">✅ Accès application-spécifique</div>
+                            <div class="benefit-item fragment">✅ Vérification continue</div>
+                            <div class="benefit-item fragment">✅ Gestion centralisée</div>
+                            <div class="benefit-item fragment">✅ Performance optimisée</div>
+                            <div class="benefit-item fragment">✅ Visibilité granulaire</div>
+                            <div class="benefit-item fragment">✅ Contrôle contextuel</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Slide 20: Défis opérationnels -->
+            <section>
+                <h2>Défis opérationnels</h2>
+                <div class="challenges-overview">
+                    <div class="challenge-category fragment">
+                        <h4>🔧 Complexité technique</h4>
+                        <ul>
+                            <li>Intégration systèmes legacy</li>
+                            <li>Modernisation progressive</li>
+                            <li>Interopérabilité solutions</li>
+                            <li>Maintenance multi-vendeurs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="challenge-category fragment">
+                        <h4>⚖️ Gestion des politiques</h4>
+                        <ul>
+                            <li>Risque de sur-restriction</li>
+                            <li>Équilibre sécurité/usabilité</li>
+                            <li>Complexité décisionnelle</li>
+                            <li>Gouvernance des accès</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="challenge-category fragment">
+                        <h4>👥 Facteur humain</h4>
+                        <ul>
+                            <li>Formation des équipes</li>
+                            <li>Résistance au changement</li>
+                            <li>Nouveaux paradigmes</li>
+                            <li>Compétences spécialisées</li>
+                        </ul>
+                    </div>
+                </div>
+                
+               
+            </section>
+
+            <!-- Slide 21: ROI et bénéfices -->
+            <section>
+                <h2>ROI et bénéfices mesurables</h2>
+                <div class="benefits-overview">
+                    <div class="benefit-category security fragment">
+                        <h4>🛡️ Sécurité renforcée</h4>
+                        <ul>
+                            <li>Réduction surface d'attaque -60%</li>
+                            <li>Limitation mouvements latéraux</li>
+                            <li>Détection incidents +40% plus rapide</li>
+                            <li>Réduction temps de confinement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="benefit-category operational fragment">
+                        <h4>⚙️ Efficacité opérationnelle</h4>
+                        <ul>
+                            <li>Visibilité granulaire 360°</li>
+                            <li>Gestion centralisée des accès</li>
+                            <li>Automatisation des contrôles</li>
+                            <li>Réduction coûts opérationnels</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="benefit-category compliance fragment">
+                        <h4>📋 Conformité réglementaire</h4>
+                        <ul>
+                            <li>Alignement RGPD/NIS2</li>
+                            <li>Audit trail complet</li>
+                            <li>Reporting automatisé</li>
+                            <li>Gouvernance renforcée</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="roi-highlight fragment">
+                    <p class="roi-stat">💰 Réduction moyenne des coûts : <strong>1,76M$ par incident</strong></p>
+                    <p class="roi-stat">⏱️ Détection plus rapide : <strong>-108 jours</strong></p>
+                </div>
+                
+            </section>
+
+            <!-- Slide 22: Tendances IA/ML -->
+            <section>
+                <h2>IA/ML : Détection comportementale avancée</h2>
+                <div class="ai-capabilities">
+                    <div class="ai-features">
+                        <div class="ai-feature fragment">
+                            <div class="ai-icon">🧠</div>
+                            <div class="ai-content">
+                                <h5>Analyse comportementale</h5>
+                                <p>Détection d'anomalies en temps réel</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ai-feature fragment">
+                            <div class="ai-icon">🔍</div>
+                            <div class="ai-content">
+                                <h5>Threat Intelligence</h5>
+                                <p>Corrélation automatisée des menaces</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ai-feature fragment">
+                            <div class="ai-icon">⚡</div>
+                            <div class="ai-content">
+                                <h5>Réponse adaptative</h5>
+                                <p>Ajustement dynamique des politiques</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ai-feature fragment">
+                            <div class="ai-icon">🎯</div>
+                            <div class="ai-content">
+                                <h5>Scoring de risque</h5>
+                                <p>Évaluation contextuelle continue</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- Slide 23: Standardisation -->
+            <section>
+                <h2>Standardisation et frameworks</h2>
+                <div class="standards-landscape">
+                    <div class="standard-framework fragment">
+                        <div class="standard-logo">🇺🇸</div>
+                        <h4>NIST SP 800-207</h4>
+                        <p>Framework de référence Zero Trust Architecture</p>
+                        <ul>
+                            <li>Principes fondamentaux</li>
+                            <li>Modèles de déploiement</li>
+                            <li>Architectures de référence</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-framework fragment">
+                        <div class="standard-logo">🇫🇷</div>
+                        <h4>ANSSI</h4>
+                        <p>Fondamentaux du modèle Zero Trust</p>
+                        <ul>
+                            <li>Recommandations nationales</li>
+                            <li>Guide d'implémentation</li>
+                            <li>Bonnes pratiques sectorielles</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="standard-framework fragment">
+                        <div class="standard-logo">🌍</div>
+                        <h4>Initiatives gouvernementales</h4>
+                        <p>Mandats et directives sectorielles</p>
+                        <ul>
+                            <li>Executive Orders US</li>
+                            <li>Directive NIS2 européenne</li>
+                            <li>Stratégies nationales</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- Slide 24: Quantum-ready -->
+            <section>
+                <h2>Quantum-Ready : Préparation aux menaces quantiques</h2>
+                <div class="quantum-landscape">
+                    <div class="quantum-timeline">
+                        <h4>Horizon temporel</h4>
+                        <div class="timeline-quantum">
+                            <div class="quantum-milestone fragment">
+                                <div class="q-year">2024</div>
+                                <div class="q-status">Recherche avancée</div>
+                            </div>
+                            <div class="quantum-milestone fragment">
+                                <div class="q-year">2030</div>
+                                <div class="q-status">Ordinateurs quantiques viables</div>
+                            </div>
+                            <div class="quantum-milestone critical fragment">
+                                <div class="q-year">2035</div>
+                                <div class="q-status">Menace cryptographique</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quantum-readiness fragment">
+                        <h4>Préparation nécessaire</h4>
+                        <div class="readiness-items">
+                            <div class="readiness-item">🔐 Cryptographie post-quantique</div>
+                            <div class="readiness-item">🔄 Migration algorithmes</div>
+                            <div class="readiness-item">📊 Inventaire crypto-assets</div>
+                            <div class="readiness-item">⏱️ Crypto-agilité</div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </section>
+
+            <!-- Slide 25: Conclusion -->
+            <section>
+                <div class="conclusion-content">
+                    <h2>La sécurité comme avantage concurrentiel</h2>
+                    
+                    <div class="conclusion-points">
+                        <div class="conclusion-point fragment">
+                            <div class="conclusion-icon">🏰→🌐</div>
+                            <h4>Transformation paradigmatique</h4>
+                            <p>De la forteresse au maillage défensif adaptatif</p>
+                        </div>
+                        
+                        <div class="conclusion-point fragment">
+                            <div class="conclusion-icon">🛡️⚡</div>
+                            <h4>Posture proactive</h4>
+                            <p>Defense réactive vers défense continue et intelligente</p>
+                        </div>
+                        
+                        <div class="conclusion-point fragment">
+                            <div class="conclusion-icon">💼📈</div>
+                            <h4>Impératif business</h4>
+                            <p>Avantage concurrentiel dans l'économie numérique</p>
+                        </div>
+                    </div>
+                    
+                    <div class="final-quote fragment">
+                        <blockquote>
+                            "Je ne sais pas si je saurai répondre aux questions mais nous pouvons échanger"
+                        </blockquote>
+                    </div>
+                    
+                    <div class="thank-you fragment">
+                        <h2>Merci pour votre attention</h2>
+                        <p>Questions & Discussions</p>
+                    </div>
+                </div>
+                
+            </section>
+
+        </div>
+    </div>
+
+<script src="dist/reveal.js"></script>
+    <script>
+    Reveal.initialize({
+    transition: 'slide', // Autres options : 'fade', 'convex', 'concave', 'zoom'
+    backgroundTransition: 'slide'
+});    </script>
+</body>
 </html>
