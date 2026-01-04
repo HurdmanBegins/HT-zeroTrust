@@ -1,0 +1,12 @@
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./js:/usr/share/nginx/html/js:ro
+      - ./css:/usr/share/nginx/html/css:ro
+      - ./dist:/usr/share/nginx/html/dist:ro
+      - ./plugin:/usr/share/nginx/html/plugin:ro
+    restart: unless-stopped
