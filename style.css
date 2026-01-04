@@ -1,3 +1,352 @@
+/* ====== Configuration pleine page Reveal.js ====== */
+.reveal .slides {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.reveal .slides > section {
+    padding: 20px !important;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.reveal .slides > section > section {
+    padding: 20px !important;
+}
+
+/* Réduction des tailles de police pour tenir dans l'écran */
+.reveal h1 {
+    font-size: 2em !important;
+}
+
+.reveal h2 {
+    font-size: 1.4em !important;
+    margin-bottom: 0.5em !important;
+}
+
+.reveal h3 {
+    font-size: 1.1em !important;
+}
+
+.reveal h4 {
+    font-size: 0.95em !important;
+}
+
+/* Adaptation des cartes au thème sombre */
+.reveal .slides section {
+    color: #eee;
+}
+
+/* Réduction des grilles pour tenir dans l'écran */
+.boundaries-grid,
+.stats-container,
+.pillars-container,
+.tech-stack,
+.standards-landscape,
+.challenges-overview,
+.benefits-overview,
+.conclusion-points {
+    gap: 0.8rem !important;
+    margin-top: 0.8rem !important;
+}
+
+.boundary-card,
+.stat-card,
+.pillar-card,
+.tech-card,
+.standard-framework,
+.challenge-category,
+.benefit-category,
+.conclusion-point {
+    padding: 0.8rem !important;
+}
+
+.boundary-card h3,
+.pillar-card h3,
+.tech-card h4,
+.standard-framework h4,
+.challenge-category h4,
+.benefit-category h4,
+.conclusion-point h4 {
+    font-size: 0.9em !important;
+    margin-bottom: 0.3rem !important;
+}
+
+.boundary-card p,
+.stat-label,
+.pillar-card p,
+.tech-card p,
+.standard-framework p,
+.challenge-category li,
+.benefit-category li,
+.conclusion-point p {
+    font-size: 0.75em !important;
+    line-height: 1.3 !important;
+}
+
+.stat-number {
+    font-size: 1.3rem !important;
+}
+
+.boundary-icon,
+.pillar-icon,
+.tech-icon,
+.standard-logo {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.3rem !important;
+}
+
+/* Flow identity - réduction */
+.identity-flow {
+    gap: 0.5rem !important;
+    margin-top: 0.8rem !important;
+}
+
+.flow-step {
+    min-width: 120px !important;
+    padding: 0.6rem !important;
+}
+
+.step-icon {
+    font-size: 1.3rem !important;
+}
+
+.flow-step h4 {
+    font-size: 0.85em !important;
+}
+
+.flow-step p {
+    font-size: 0.7em !important;
+}
+
+.flow-arrow {
+    font-size: 1rem !important;
+}
+
+/* Comparaison militaire - réduction */
+.military-comparison {
+    gap: 1rem !important;
+    margin-top: 0.8rem !important;
+}
+
+.military-side,
+.cyber-side {
+    padding: 1rem !important;
+}
+
+.comparison-list li {
+    font-size: 0.8em !important;
+    margin: 0.3rem 0 !important;
+}
+
+/* Zones de segmentation */
+.network-zones {
+    gap: 1rem !important;
+}
+
+.zone-card {
+    padding: 0.8rem !important;
+}
+
+.zone-card h4 {
+    font-size: 0.9em !important;
+}
+
+.segment {
+    padding: 0.3rem 0.5rem !important;
+    font-size: 0.75em !important;
+}
+
+.segmentation-benefits {
+    margin-top: 0.8rem !important;
+}
+
+.benefits-item {
+    font-size: 0.85em !important;
+}
+
+/* Défense en profondeur */
+.defense-layers {
+    gap: 0.6rem !important;
+    max-width: 400px !important;
+}
+
+.layer {
+    padding: 0.6rem !important;
+    font-size: 0.85em !important;
+}
+
+/* Architecture réticulaire */
+.adaptive-architecture {
+    gap: 1rem !important;
+    margin-top: 0.8rem !important;
+}
+
+.controls-section,
+.risk-evaluation {
+    padding: 1rem !important;
+}
+
+.control-grid {
+    gap: 0.5rem !important;
+}
+
+.control-item {
+    padding: 0.5rem !important;
+    font-size: 0.8em !important;
+}
+
+.risk-level {
+    padding: 0.5rem !important;
+    font-size: 0.8em !important;
+}
+
+/* Moindre privilège */
+.privilege-model {
+    gap: 1rem !important;
+    margin-top: 0.8rem !important;
+}
+
+.privilege-bar {
+    padding: 0.5rem !important;
+    font-size: 0.8em !important;
+}
+
+.jit-features li {
+    font-size: 0.8em !important;
+}
+
+/* ZTNA comparison */
+.ztna-comparison {
+    gap: 1rem !important;
+    margin-top: 0.8rem !important;
+}
+
+.vpn-traditional,
+.ztna-modern {
+    padding: 1rem !important;
+}
+
+.issue-item,
+.benefit-item {
+    font-size: 0.8em !important;
+}
+
+/* AI features */
+.ai-features {
+    gap: 0.6rem !important;
+}
+
+.ai-feature {
+    padding: 0.7rem !important;
+}
+
+.ai-icon {
+    font-size: 1.3rem !important;
+}
+
+.ai-content h5 {
+    font-size: 0.9em !important;
+}
+
+.ai-content p {
+    font-size: 0.75em !important;
+}
+
+/* Quantum */
+.quantum-landscape {
+    gap: 1rem !important;
+    margin-top: 0.8rem !important;
+}
+
+.quantum-timeline,
+.quantum-readiness {
+    padding: 1rem !important;
+}
+
+.quantum-milestone {
+    padding: 0.6rem !important;
+}
+
+.q-year {
+    font-size: 0.95em !important;
+}
+
+.q-status {
+    font-size: 0.8em !important;
+}
+
+.readiness-item {
+    padding: 0.5rem !important;
+    font-size: 0.8em !important;
+}
+
+/* ROI highlight */
+.roi-highlight {
+    margin-top: 1rem !important;
+    padding: 0.8rem !important;
+}
+
+.roi-stat {
+    font-size: 0.85em !important;
+}
+
+/* Conclusion */
+.conclusion-content {
+    gap: 1rem !important;
+    margin-top: 0.5rem !important;
+}
+
+.final-quote blockquote {
+    padding: 0.8rem 1rem !important;
+    font-size: 0.9em !important;
+}
+
+.thank-you {
+    padding: 1rem !important;
+}
+
+.thank-you h2 {
+    font-size: 1.3em !important;
+}
+
+/* Castle container */
+.castle-container {
+    padding: 1rem !important;
+    gap: 1rem !important;
+}
+
+.castle-visual {
+    font-size: 2.5rem !important;
+}
+
+.feature-item {
+    font-size: 0.85em !important;
+}
+
+/* Principe container */
+.principle-container {
+    padding: 1rem !important;
+    gap: 1rem !important;
+}
+
+.central-principle h3 {
+    font-size: 1.3em !important;
+}
+
+.principle-subtitle {
+    font-size: 0.85em !important;
+}
+
+.principle-card {
+    padding: 0.7rem !important;
+    font-size: 0.85em !important;
+}
+
+/* ====== Styles personnalisés ====== */
 .presenter-info {
     font-size: 0.5em;
 }
@@ -129,10 +478,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  padding: 2rem;
+  gap: 1rem;
+  padding: 1rem;
   border-radius: 12px;
-  background: #fafafa;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .central-principle {
@@ -141,42 +490,45 @@
 }
 
 .central-principle h3 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #222;
+  margin-bottom: 0.3rem;
+  color: #fff;
 }
 
 .principle-subtitle {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-style: italic;
-  color: #666;
+  color: #ccc;
 }
 
 /* grille des sous-principes */
 .principles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .principle-card {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1rem;
+  padding: 0.8rem 1rem;
   border-radius: 10px;
   background: #fff;
   border: 1px solid #e0e0e0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #333;
+  flex: 1 1 250px;
+  max-width: 280px;
 }
 
 .principle-icon {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   flex-shrink: 0;
 }
 
